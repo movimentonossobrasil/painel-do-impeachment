@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Painel do Impeachment</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/152x152.png">
+  <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+  <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/email.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="white"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Painel do Impeachment">
+  <meta name="msapplication-TileImage" content="images/144x144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+</head>
+<body class="fullscreen">
+<form id="form-id" action="https://formspree.io/manifesteagora@gmail.com" method="POST">
+  <div class="tabs">
+      <div onclick="window.history.back(-1);" class="backTab">
+        <a class="centerPosit">&lt;-</a>
+      </div>
+      <div class="fullTab">
+        <a class="selectedText centerPosit">Impeachment</a>
+      </div>
+  </div>
+    <div class="selectedContainer">
+      <h1 id="stateSelect">Envie seu e-mail:</h1>
+      <p>Nome:</p>
+      <input type="text" id="nome" class="mailWidth">
+      <p>E-Mail:</p>
+      <input type="email" name="email" id="email" class="mailWidth">
+      <p>Assunto:</p>
+      <input type="text" name="subject" id="assunto" class="mailWidth" value="Sim - Impeachment - Dep. ">
+      <p>Mensagem:</p>
+      <textarea id="corpo" name="message" class="mailWidth mailHeight">
+Prezado Deputado(a),
+Como cidadão(ã) cobro o seu posicionamento favorável ao processo de impeachment do Presidente da República.
+Se posicione como sim pelo impeachment, sim pelo nosso país.  
+      </textarea>
+      <br>
+      <button class="simBut" style="background-color: black" type="button" onclick="enviarEmail()">Enviar</button>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Painel do Impeachment</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/152x152.png">
+  <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+  <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+  <script src="js/selectedState.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="white"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Painel do Impeachment">
+  <meta name="msapplication-TileImage" content="images/144x144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+</head>
+<body class="fullscreen">
+  <div class="tabs">
+      <div onclick="window.history.back(-1);" class="backTab">
+        <a class="centerPosit">&lt;-</a>
+      </div>
+      <div class="fullTab">
+        <a class="selectedText centerPosit"></a>
+      </div>
+  </div>
+  <div class="selectedContainer">
+    <h1 id="stateSelect">Quem são?</h1>
+    <div class="none">
+      <p>Não hão deputados com essa opinião no estado selecionado.<p>
+    </div>
+  </div>
+</body>
+</html>

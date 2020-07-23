@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Painel do Impeachment</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/152x152.png">
+  <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+  <script src="js/indexJs.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="white"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Painel do Impeachment">
+  <meta name="msapplication-TileImage" content="images/144x144.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+</head>
+<body class="fullscreen">
+  <div class="centeredText">
+    <h1 id="introPlacar">Painel do Impeachment</h1>
+    <p class="indexP">Verifique aqui o posicionamento dos deputados:</p>
+  </div>
+  <div class="introTabs">
+      <div onclick="loadScore(this)" class="tab green">
+        <a class="centerPosit">Sim</a>
+      </div>
+      <div onclick="loadScore(this)" class="tab">
+        <a class="indif">Não<br>Encontrado</a>
+      </div>
+      <div onclick="loadScore(this)" class="tab red">
+        <a class="centerPosit">Não</a>
+      </div>
+  </div>
+<p>
+  <div style="height: 10%;margin-left: 34%;top: 87%;position: absolute;">
+    Quem somos?
+    <br>
+    <img style="height: 70%;margin-left: 23%;" src="/images/logo.png" onclick="loadWho()">
+  </div>
+</body>
+</html>
