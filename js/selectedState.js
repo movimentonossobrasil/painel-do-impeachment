@@ -123,7 +123,11 @@ function getSrc(nome, img, nameDiv) {
       if (err !== null) {
         alert('Something went wrong: ' + err);
       } else {
-        img.src = data.dados[0].urlFoto;
+        if ( nome == "Marcon" ) {
+          img.src = data.dados[3].urlFoto;
+        } else {
+          img.src = data.dados[0].urlFoto;
+        }
         var deputadoDiv = document.createElement("div");
         var cobrarDiv = document.createElement("div");
         var cobrarP = document.createElement("p");
