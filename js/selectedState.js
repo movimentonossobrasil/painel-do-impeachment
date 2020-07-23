@@ -27,7 +27,7 @@ var states = [
   { acr: 'RN', comp: 'Rio Grande do Norte' },
   { acr: 'RS', comp: 'Rio Grande do Sul' },
   { acr: 'RO', comp: 'Rondônia' },
-  { acr: 'RR', comp: 'Roraíma' },
+  { acr: 'RR', comp: 'Roraima' },
   { acr: 'SC', comp: 'Santa Catarina' },
   { acr: 'SP', comp: 'São Paulo' },
   { acr: 'SE', comp: 'Sergipe' },
