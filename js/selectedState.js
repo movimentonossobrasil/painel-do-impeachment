@@ -118,16 +118,13 @@ var getJSON = function(url, callback) {
 };
 
 function getSrc(nome, img, nameDiv) {
-    getJSON('https://dadosabertos.camara.leg.br/api/v2/deputados?nome=' + encodeURI(nome),
+    getJSON('https://dadosabertos.camara.leg.br/api/v2/deputados?idLegislatura=56&nome=' + encodeURI(nome),
     function(err, data) {
       if (err !== null) {
         alert('Something went wrong: ' + err);
       } else {
-        if ( nome == "Marcon" ) {
-          img.src = data.dados[3].urlFoto;
-        } else {
-          img.src = data.dados[0].urlFoto;
-        }
+        img.src = data.dados[0].urlFoto;
+        
         var deputadoDiv = document.createElement("div");
         var cobrarDiv = document.createElement("div");
         var cobrarP = document.createElement("p");
