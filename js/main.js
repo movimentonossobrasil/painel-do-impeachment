@@ -83,3 +83,7 @@ function loadNao() {
 function loadQuem() {
   location.href = "selected.html?selected=" + selected;
 }
+
+function loadWho() {
+  location.href = "quemSomos.html";
+}
