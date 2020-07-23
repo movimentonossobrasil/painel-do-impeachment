@@ -55,6 +55,7 @@ html, .fullscreen {
   width: 100%;
   position: absolute;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .introTabs {
