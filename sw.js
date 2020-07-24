@@ -1,11 +1,11 @@
 var cacheName = 'painel-impeachment-1';
 var filesToCache = [
-  '/',
-  '/index.html',,
-  '/selectedIndex.html',
-  '/css/style.css',
-  '/js/indexJs.js',
-  '/js/main.js'
+  'https://movimentonossobrasil.github.io/painel-do-impeachment/',
+  'https://movimentonossobrasil.github.io/painel-do-impeachment/index.html',,
+  'https://movimentonossobrasil.github.io/painel-do-impeachment/selectedIndex.html',
+  'https://movimentonossobrasil.github.io/painel-do-impeachment/css/style.css',
+  'https://movimentonossobrasil.github.io/painel-do-impeachment/js/indexJs.js',
+  'https://movimentonossobrasil.github.io/painel-do-impeachment/js/main.js'
 ];
 
 /* Start the service worker and cache all of the app's content */
