@@ -1,6 +1,6 @@
 {
   "name": "Painel do Impeachment",
-  "short_name": "Impeachment",
+  "short_name": "Painel do Impeachment",
   "icons": [{
     "src": "images/128x128.png",
       "sizes": "128x128",
@@ -27,7 +27,7 @@
       "type": "image/png"
     }],
   "lang": "pt-BR",
-  "start_url": "/index.html",
+  "start_url": "https://movimentonossobrasil.github.io/painel-do-impeachment/index.html",
   "display": "standalone",
   "background_color": "white",
   "theme_color": "white"
