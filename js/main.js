@@ -5,11 +5,6 @@ var selected = null;
 
 window.onload = () => {
   'use strict';
-
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-             .register('./sw.js');
-  }
     
   oReq.open("GET", url, true);
   oReq.responseType = "arraybuffer";
