@@ -7,9 +7,8 @@ window.onload = () => {
   }
 }
 
-function loadScore(element) {
-  var text = element.innerText.replace("ã", "a");
-  location.href = "selectedIndex.html?selected=" + text;
+function loadScore() {
+  location.href = "selectedIndex.html";
 }
 
 function loadWho() {
