@@ -4,6 +4,7 @@ var filesToCache = [
   './index.html',
   './selectedIndex.html',
   './css/style.css',
+  './images/logo.png',
   './data/Pesquisa.xlsx',
   './js/indexJs.js',
   './js/main.js'
