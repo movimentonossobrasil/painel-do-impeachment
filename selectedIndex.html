@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Painel do Impeachment</title>
-  <link rel="manifest" href="/painel-do-impeachment/manifest.json">
+  <link rel="manifest" href="/./manifest.json">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="images/152x152.png">
@@ -19,26 +19,103 @@
   <meta name="msapplication-TileColor" content="#FFFFFF">
 </head>
 <body class="fullscreen">
-  <div class="tabs">
-      <div onclick="loadSim(this)" class="tab green">
-        <a class="centerPosit">Sim</a>
+  <div class="centeredText">
+    <h1 id="introPlacar">Painel do Impeachment</h1>
+    <div class="indexContainer">
+      <div class="placar">
+        <div class="quantidadeDiv">
+          <h1 id="quantidadeAtualSim"></h1>
+          <h3 style="color:green">SIM</h3>
+        </div>
+        <div class="quantidadeDiv">
+          <h3 style="color:#ffdb58;margin-top:10%;">Faltam</h3>
+          <h1 id="quantidadeAtualIndif" style="font-size:1em;margin-top:-6%;"></h1>
+        </div>
+        <div class="quantidadeDiv">
+          <h1 id="quantidadeAtualNao"></h1>
+          <h3 style="color:red">NÃO</h3>
+        </div>
       </div>
-      <div onclick="loadIndif(this)" class="tab selected">
-        <a class="indif">Não<br>Encontrado</a>
+      <br><br>
+      Quem são?
+      <p style="font-size:0.8em;margin-bottom:0%">Posição&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Estado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Partido</p>
+      <div>
+        <select style="font-family: 'Audiowide';font-size:0.6em;" id="pos">
+          <option value="" selected>Todas</option>
+          <option value="A Favor">Sim</option>
+          <option value="Indiferente">Não Encontrado</option>
+          <option value="Contra">Não</option>
+        </select>
+        <select style="font-family: 'Audiowide';font-size:0.6em;" id="estado">
+          <option value="" selected>Todos</option>
+          <option value="AC">AC</option>
+          <option value="AL">AL</option>
+          <option value="AM">AM</option>
+          <option value="AP">AP</option>
+          <option value="BA">BA</option>
+          <option value="CE">CE</option>
+          <option value="DF">DF</option>
+          <option value="ES">ES</option>
+          <option value="GO">GO</option>
+          <option value="MA">MA</option>
+          <option value="MG">MG</option>
+          <option value="MS">MS</option>
+          <option value="MT">MT</option>
+          <option value="PA">PA</option>
+          <option value="PB">PB</option>
+          <option value="PE">PE</option>
+          <option value="PI">PI</option>
+          <option value="PR">PR</option>
+          <option value="RJ">RJ</option>
+          <option value="RN">RN</option>
+          <option value="RO">RO</option>
+          <option value="RR">RR</option>
+          <option value="RS">RS</option>
+          <option value="SC">SC</option>
+          <option value="SE">SE</option>
+          <option value="SP">SP</option>
+          <option value="TO">TO</option>
+        </select>
+        <select style="font-family: 'Audiowide';font-size:0.6em;" id="part">
+          <option value="" selected>Todos</option>
+          <option value="Avante">Avante</option>
+          <option value="Cidadania">Cidadania</option>
+          <option value="DEM">DEM</option>
+          <option value="MDB">MDB</option>
+          <option value="Novo">Novo</option>
+          <option value="Patriota">Patriota</option>
+          <option value="PCdoB">PCdoB</option>
+          <option value="PDT">PDT</option>
+          <option value="PL">PL</option>
+          <option value="PODE">PODE</option>
+          <option value="PP">PP</option>
+          <option value="PROS">PROS</option>
+          <option value="PSB">PSB</option>
+          <option value="PSC">PSC</option>
+          <option value="PSD">PSD</option>
+          <option value="PSDB">PSDB</option>
+          <option value="PSL">PSL</option>
+          <option value="PSOL">PSOL</option>
+          <option value="PT">PT</option>
+          <option value="PTB">PTB</option>
+          <option value="PV">PV</option>
+          <option value="REDE">REDE</option>
+          <option value="Republicanos">Republicanos</option>
+          <option value="Solidariedade">Solidariedade</option>
+        </select>
+        <p class="verificBut" onclick="checarDeputados()">Verificar</p>
       </div>
-      <div onclick="loadNao(this)" class="tab red">
-        <a class="centerPosit">Não</a>
+      <div class="none" id="none" style="display:none;">
+        <p>Não foram encontrados deputados com esta configuração.<p>
       </div>
-  </div>
-  <div class="indexContainer">
-    <h1 id="quantidadeAtual"></h1>
-    <button class="quemSao simBut" type="button" onclick="loadQuem()">Quem são?</button>
-    <br><br>
-    Quem somos?
-    <br>
-    <img style="cursor:pointer;" width="20%" src="/painel-do-impeachment/images/logo.png" onclick="loadWho()">
-    <br>
-    <a style="font-size: 0.6em;">Última atualização destes dados: 09/06/2020</a>
+      <div id="deputados">
+      </div>
+      Quem somos?
+      <br>
+      <img style="cursor:pointer;" width="20%" src="/./images/logo.png" onclick="loadWho()">
+      <br>
+      <a style="font-size: 0.6em;">Última atualização destes dados: 06/08/2020</a>
+    </div>
   </div>
 </body>
 </html>
