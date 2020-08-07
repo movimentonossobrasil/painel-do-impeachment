@@ -27,7 +27,7 @@
       "type": "image/png"
     }],
   "lang": "pt-BR",
-  "start_url": "https://movimentonossobrasil.github.io/painel-do-impeachment/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "white",
   "theme_color": "white"
