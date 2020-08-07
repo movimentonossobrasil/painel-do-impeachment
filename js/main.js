@@ -2,6 +2,7 @@ var url = "data/Pesquisa.xlsx";
 var oReq = new XMLHttpRequest();
 var jsonRet = null;
 var selected = null;
+var jsonRetFiltrado = null;
 
 window.onload = () => {
   'use strict';
@@ -29,13 +30,9 @@ window.onload = () => {
     jsonRet = XLSX.utils.sheet_to_json(worksheet,{raw:true});
     
     selected = getParams()["selected"];
-    if ( selected == "Sim" ) {
-      loadSim();  
-    } else if ( selected == "Nao" ) {
-      loadNao();
-    } else {
-      loadIndif();
-    }
+    document.getElementById("quantidadeAtualSim").innerHTML = jsonRet[3]["__EMPTY"];
+    document.getElementById("quantidadeAtualIndif").innerHTML = jsonRet[3]["__EMPTY_1"];
+    document.getElementById("quantidadeAtualNao").innerHTML = jsonRet[3]["__EMPTY_2"];
   }
 
   oReq.send();
@@ -54,29 +51,76 @@ function getParams() {
     return params;
 }
 
-function loadSim() {
-  document.getElementById("quantidadeAtual").innerHTML = jsonRet[4]["__EMPTY_1"];
-  document.getElementsByClassName("selected")[0].className = document.getElementsByClassName("selected")[0].className.split("selected")[0] + document.getElementsByClassName("selected")[0].className.split("selected")[1];
-  document.getElementsByClassName("tab")[0].className = document.getElementsByClassName("tab")[0].className + " selected";
-  selected = "A Favor";
+function checarDeputados() {
+  jsonRetFiltrado = jsonRet;
+  var pos = document.getElementById("pos");
+  var estado = document.getElementById("estado");
+  var part = document.getElementById("part");
+  
+  if (pos.options[pos.selectedIndex].value != "") {
+    jsonRetFiltrado = jsonRetFiltrado.filter(jsonRetFiltrado => jsonRetFiltrado.POSIÇÃO == pos.options[pos.selectedIndex].value);  
+  }
+  if (estado.options[estado.selectedIndex].value != "") {
+    jsonRetFiltrado = jsonRetFiltrado.filter(jsonRetFiltrado => jsonRetFiltrado.Estado == estado.options[estado.selectedIndex].value);  
+  }
+  if (part.options[part.selectedIndex].value != "") {
+    jsonRetFiltrado = jsonRetFiltrado.filter(jsonRetFiltrado => jsonRetFiltrado.PARTIDO == part.options[part.selectedIndex].value);  
+  }
+  console.log (jsonRetFiltrado);
+  showData();
 }
 
-function loadIndif() {
-  document.getElementById("quantidadeAtual").innerHTML = jsonRet[4]["__EMPTY_2"];
-  document.getElementsByClassName("selected")[0].className = document.getElementsByClassName("selected")[0].className.split("selected")[0] + document.getElementsByClassName("selected")[0].className.split("selected")[1];
-  document.getElementsByClassName("tab")[1].className = document.getElementsByClassName("tab")[1].className + " selected";
-  selected = "Não Encontrado";
+function showData() {
+  document.getElementById("deputados").innerHTML = "";
+  if (jsonRetFiltrado.length == 0) {
+    document.getElementById("none").style = "display:block;";
+    return;
+  } else {
+    document.getElementById("none").style = "display:none;";
+  }
+  for (var i = 0; i < jsonRetFiltrado.length; i++) {
+    var nameDiv = document.createElement("div");
+    var img = document.createElement("img");
+        
+    img.className = "img"
+    nameDiv.className = "nome";
+    nameDiv.innerHTML = jsonRetFiltrado[i]["DEPUTADO"] + " - " + jsonRetFiltrado[i]["PARTIDO"] + " - " + jsonRetFiltrado[i]["Estado"];
+        
+    img.src = jsonRetFiltrado[i]["Foto"];
+        
+    var deputadoDiv = document.createElement("div");
+    var cobrarDiv = document.createElement("div");
+    var cobrarP = document.createElement("p");
+    var simBut = document.createElement("button");
+
+    cobrarP.innerHTML = "Clique para cobrar o posicionamento:";
+    simBut.innerHTML = "A Favor";
+    cobrarDiv.appendChild(cobrarP);
+    simBut.className = "simBut";
+    simBut.onclick = function() {loadEmail(this);};
+    cobrarDiv.appendChild(simBut);
+    cobrarDiv.className = "cobrar";
+    deputadoDiv.className = "deputado";
+
+    deputadoDiv.appendChild(img);
+    deputadoDiv.appendChild(nameDiv);
+    if ( jsonRetFiltrado[i]["POSIÇÃO"] == "A Favor" ) {
+      cobrarDiv.style="visibility:hidden;";
+      deputadoDiv.style = "background:darkgreen;color:white;";
+    } else if (jsonRetFiltrado[i]["POSIÇÃO"] == "Contra") {
+      deputadoDiv.style = "background:darkred;color:white;";
+    } else {
+      deputadoDiv.style = "background:#ffdb58;";
+    }
+    
+    deputadoDiv.appendChild(cobrarDiv);
+        
+    document.getElementById("deputados").appendChild(deputadoDiv);
+  }
 }
 
-function loadNao() {
-  document.getElementById("quantidadeAtual").innerHTML = jsonRet[4]["__EMPTY_3"];
-  document.getElementsByClassName("selected")[0].className = document.getElementsByClassName("selected")[0].className.split("selected")[0] + document.getElementsByClassName("selected")[0].className.split("selected")[1];
-  document.getElementsByClassName("tab")[2].className = document.getElementsByClassName("tab")[2].className + " selected";
-  selected = "Contra";
-}
-
-function loadQuem() {
-  location.href = "selected.html?selected=" + selected;
+function loadEmail(elm) {
+  location.href = "envieEmail.html?dep=" + elm.parentElement.parentElement.innerText.split(" - ")[0];
 }
 
 function loadWho() {
