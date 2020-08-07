@@ -1,4 +1,4 @@
-var cacheName = 'painel-impeachment-1';
+var cacheName = 'painel-impeachment-2';
 var filesToCache = [
   './',
   './index.html',
