@@ -138,10 +138,10 @@ html, .fullscreen {
   color: white;
   border-radius: 25px;
   font-family: 'Audiowide';
-  background-color: black;
+  background-color: #01452c;
   cursor: pointer;
-  width:30%;
-  margin-left:35%
+  width:48%;
+  margin-left:27%
 }
 
 .deputado {
