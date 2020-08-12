@@ -26,6 +26,8 @@ function enviarEmail() {
     if (valid()) {
         $("#corpo")[0].defaultValue = $("#corpo")[0].defaultValue + " De: " + $("#nome")[0].value;
         $("#form-id").submit()
+    } else {
+        alert("Todos os campos são obrigatórios");
     }
 }
 
@@ -42,5 +44,6 @@ function ValidateEmail(mail) {
   {
     return true;
   }
+    alert("O e-mail deve ser válido");
     return false;
 }
