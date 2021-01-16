@@ -94,7 +94,7 @@ function showData() {
     var simBut = document.createElement("button");
 
     cobrarP.innerHTML = "Clique para cobrar o posicionamento:";
-    simBut.innerHTML = "A Favor";
+    simBut.innerHTML = "Pressione";
     cobrarDiv.appendChild(cobrarP);
     simBut.className = "simBut";
     simBut.onclick = function() {loadEmail(this);};
